@@ -1,7 +1,7 @@
-//Printer depends on a Document to print
+// Dependency (uses-a) is a short-lived “uses” relationship where one object temporarily depends on another to perform a task, without storing it as a field.
+// Dependency → borrows
 
 package ClassRelationships.Dependency;
-
 
 public class Document {
     private String content;
