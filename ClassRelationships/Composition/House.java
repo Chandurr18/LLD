@@ -1,3 +1,6 @@
+// Composition (owns-a, whole–part with dependent lifecycle) is a strong whole-part relationship where the part cannot logically or physically exist without the whole, and dies when the whole is destroyed.
+// Composition → owns (strong ownership)
+
 package ClassRelationships.Composition;
 
 import java.util.ArrayList;
