@@ -1,6 +1,6 @@
 //Solution 2 : Inner Static Builder class (Telescopic Constructor Alternative)
 
-package Solution.Solution2;
+package CreationalPattern.Builder.Solution.Solution2;
 
 public class House {
     // ====== Product Fields ======

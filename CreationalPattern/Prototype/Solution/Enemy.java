@@ -1,6 +1,10 @@
-package CreationalPattern.PrototypePattern.Problem;
+package CreationalPattern.Prototype.Solution;
 
-public class Enemy {
+interface EnemyPrototype extends Cloneable{
+    EnemyPrototype clone();
+}
+
+public class Enemy implements EnemyPrototype {
     private String type;
     private int health;
     private double speed;
@@ -15,10 +19,19 @@ public class Enemy {
     }
 
     @Override
+    public EnemyPrototype clone(){
+        return new Enemy(type, health, speed, armored, weapon);
+    }
+
+    @Override
     public String toString(){
         return type + " [Health: " + health +
                            ", Speed: " + speed +
                            ", Armored: " + armored +
                            ", Weapon: " + weapon + "]";
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

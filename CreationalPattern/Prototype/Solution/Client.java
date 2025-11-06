@@ -1,4 +1,4 @@
-package CreationalPattern.PrototypePattern.Solution;
+package CreationalPattern.Prototype.Solution;
 
 public class Client {
     public static void main(String[] args) {
