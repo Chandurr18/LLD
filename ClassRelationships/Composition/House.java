@@ -1,22 +1,42 @@
-// Composition (owns-a, whole–part with dependent lifecycle) is a strong whole-part relationship where the part cannot logically or physically exist without the whole, and dies when the whole is destroyed.
-// Composition → owns (strong ownership)
-
 package ClassRelationships.Composition;
 
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Composition (OWNS-A):
+ * House strongly owns Rooms.
+ * If House is destroyed, Rooms cannot logically exist.
+ */
 public class House {
-    ArrayList<Room> rooms;
 
-    public House(){
+    private List<Room> rooms;
+
+    public House() {
         rooms = new ArrayList<>();
-        rooms.add(new Room("BedRoom"));
+        rooms.add(new Room("Bedroom"));
         rooms.add(new Room("Kitchen"));
+
+        System.out.println("House created with default rooms.");
     }
 
-    public void showRooms(){
-        for(Room room : rooms){
-            System.out.println("Room :" + room.getRoomName());
+    public void showRooms() {
+        System.out.println("Rooms in this house:");
+        for (Room room : rooms) {
+            System.out.println("- " + room.getRoomName());
         }
+    }
+
+    /**
+     * Emulates destruction of the house.
+     * Rooms lose meaning afterward.
+     */
+    public void demolishHouse() {
+        System.out.println("House demolished. Rooms destroyed.");
+        rooms.clear();
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
     }
 }
