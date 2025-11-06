@@ -1,7 +1,7 @@
 // Solution 1 : Separate Builder class and Director
 
 
-package Solution.Solution1;
+package CreationalPattern.Builder.Solution.Solution1;
 
 // ==========================
 // 1. Product Class

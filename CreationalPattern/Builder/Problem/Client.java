@@ -1,4 +1,4 @@
-package Problem;
+package CreationalPattern.Builder.Problem;
 
 public class Client {
     public static void main(String[] args) {

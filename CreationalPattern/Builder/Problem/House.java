@@ -1,4 +1,4 @@
-package Problem;
+package CreationalPattern.Builder.Problem;
 public class House {
     private int doors;
     private int windows;

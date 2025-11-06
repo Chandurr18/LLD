@@ -1,6 +1,6 @@
-package CreationalPattern.PrototypePattern.Problem;
+package CreationalPattern.Prototype.Problem;
 
-import CreationalPattern.PrototypePattern.Solution.Enemy;
+import CreationalPattern.Prototype.Solution.Enemy;
 
 public class Client {
     public static void main(String[] args) {
