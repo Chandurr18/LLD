@@ -89,7 +89,7 @@ No more re-testing everything when adding a new method.
 
 ## 🧠 UML
 
-![alt text](../../UMLDiagrams/OCP.png)
+![alt text](../../assets/uml-images/OCP.png)
 ---
 
 ## 🛑 Common Interview Traps
