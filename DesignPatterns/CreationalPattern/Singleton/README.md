@@ -1,6 +1,6 @@
 # Singleton Pattern — Database Connection Manager
 
-This example demonstrates the **Singleton Design Pattern** from the Creational Design Patterns family using a database connection scenario.
+This example demonstrates the **Singleton Design Pattern** from the Creational Design Patterns family using a *Database connection system* scenario.
 
 Singleton states that:
 
