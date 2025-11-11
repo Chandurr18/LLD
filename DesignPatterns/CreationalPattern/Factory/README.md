@@ -48,6 +48,13 @@ This design ensures that:
 
 ---
 
+## 🧠 UML Reference
+
+![FactoryMethod](../../../assets/uml-images/Factory.png)
+
+---
+
+
 ## 👌 Benefits of This Design
 
 - ✅ Loose coupling between creator and concrete classes  
@@ -82,12 +89,6 @@ This design ensures that:
 
 All payments are processed via the correct concrete factory —  
 no direct object creation from the client.
-
----
-
-## 🧠 UML Reference
-
-![FactoryMethod](../../../assets/uml-images/Factory.png)
 
 ---
 

@@ -78,7 +78,7 @@ Now, each class implements only the methods it actually supports.
 
 ## 🧠 UML (Simplified)
 
-![alt text](../../assets/uml-images/ISP.png)
+![alt text](../../assets/uml-images/solid-umls/ISP.png)
 
 ---
 

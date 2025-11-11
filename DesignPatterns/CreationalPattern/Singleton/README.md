@@ -45,6 +45,12 @@ Responsibilities are controlled through static access:
 
 ---
 
+## 🧠 UML (Simplified)
+
+![alt text](../../../assets/uml-images/Singleton.png)
+
+---
+
 ### 🧩 Types of Singleton Implementations
 
 | Type | Thread-Safe | Lazy | Description |
@@ -95,12 +101,6 @@ HOLDER executing: SELECT * FROM users;
 ```
 
 All `true` values confirm that the same instance is returned every time.
-
----
-
-## 🧠 UML (Simplified)
-
-![alt text](../../../assets/uml-images/Singleton.png)
 
 ---
 
