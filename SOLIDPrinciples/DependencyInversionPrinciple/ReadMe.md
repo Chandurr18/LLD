@@ -65,7 +65,7 @@ Now both `PaymentProcessor` (high-level) and payment implementations (low-level)
 
 ## 🧠 UML (Simplified)
 
-![alt text](../../assets/uml-images/DIP.png)
+![alt text](../../assets/uml-images/solid-umls/DIP.png)
 
 ---
 

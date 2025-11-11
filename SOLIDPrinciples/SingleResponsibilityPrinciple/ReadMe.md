@@ -105,7 +105,7 @@ This reduces:
 
 ## 🧠 UML (Simplified)
 
-![alt text](../../assets/uml-images/SRP.png)
+![alt text](../../assets/uml-images/solid-umls/SRP.png)
 
 ---
 

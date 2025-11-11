@@ -83,7 +83,7 @@ Now we define two interfaces:
 
 ## 🧠 UML (Simplified)
 
-![alt text](../../assets/uml-images/LSP.png)
+![alt text](../../assets/uml-images/solid-umls/LSP.png)
 
 ---
 
