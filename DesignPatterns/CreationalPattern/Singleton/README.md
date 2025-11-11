@@ -47,7 +47,7 @@ Responsibilities are controlled through static access:
 
 ## 🧠 UML (Simplified)
 
-![alt text](../../../assets/uml-images/Singleton.png)
+![alt text](../../../assets/uml-images/design-patterns-uml/creational-patterns-uml/Singleton.png)
 
 ---
 
