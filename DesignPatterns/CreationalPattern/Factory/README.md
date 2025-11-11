@@ -50,7 +50,7 @@ This design ensures that:
 
 ## 🧠 UML Reference
 
-![FactoryMethod](../../../assets/uml-images/Factory.png)
+![FactoryMethod](../../../assets/uml-images/design-patterns-uml/creational-patterns-uml/Factory.png)
 
 ---
 

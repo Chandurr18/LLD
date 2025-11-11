@@ -46,7 +46,7 @@ Concrete factories implement these interfaces to create product families (e.g., 
 
 ## 🧠 UML Reference
 
-![AbstractFactory](.../../../../../assets/uml-images/AbstractFactory.png)
+![AbstractFactory](../../../assets/uml-images/design-patterns-uml/creational-patterns-uml/AbstractFactory.png)
 
 ---
 
