@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Problem;
+package CreationalPattern.Factory.Problem;
 
 /**
  * Credit Card payment concrete implementation.

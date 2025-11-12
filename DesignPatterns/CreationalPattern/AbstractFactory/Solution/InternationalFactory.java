@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.AbstractFactory.Solution;
+package CreationalPattern.AbstractFactory.Solution;
 
 /**
  * Concrete Factory 2 — International environment.

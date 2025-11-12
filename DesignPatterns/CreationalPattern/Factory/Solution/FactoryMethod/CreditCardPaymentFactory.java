@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.FactoryMethod;
+package CreationalPattern.Factory.Solution.FactoryMethod;
 
 /**
  * Concrete Factory 2
@@ -12,4 +12,3 @@ public class CreditCardPaymentFactory extends PaymentProcessorFactory {
         return new CreditCardPayment();
     }
 }
-

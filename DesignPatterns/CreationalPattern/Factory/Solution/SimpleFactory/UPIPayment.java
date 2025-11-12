@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.SimpleFactory;
+package CreationalPattern.Factory.Solution.SimpleFactory;
 
 /**
  * Concrete product: UPI payment implementation.

@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.SimpleFactory;
+package CreationalPattern.Factory.Solution.SimpleFactory;
 
 /**
  * ✅ Client depends only on abstraction (PaymentService)
@@ -17,4 +17,3 @@ public class Client {
         // not the client.
     }
 }
-

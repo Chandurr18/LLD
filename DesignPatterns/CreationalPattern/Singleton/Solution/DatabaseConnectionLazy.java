@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Singleton.Solution;
+package CreationalPattern.Singleton.Solution;
 
 /**
  * ❗ Lazy Singleton (non-thread-safe)

@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.FactoryMethod;
+package CreationalPattern.Factory.Solution.FactoryMethod;
 
 /**
  * ✅ Product interface.
@@ -7,4 +7,3 @@ package DesignPatterns.CreationalPattern.Factory.Solution.FactoryMethod;
 public interface PaymentService {
     void makePayment(double amount);
 }
-

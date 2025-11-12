@@ -1,9 +1,10 @@
-package DesignPatterns.CreationalPattern.Singleton.Solution;
+package CreationalPattern.Singleton.Solution;
 
 /**
  * ✅ Thread-safe Lazy Singleton (Double-Checked Locking)
  * Efficient after initialization.
- * Volatile keyword ensures that changes to the instance variable are immediately visible to other threads.
+ * Volatile keyword ensures that changes to the instance variable are
+ * immediately visible to other threads.
  */
 public class DatabaseConnectionDCL {
 

@@ -1,4 +1,5 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.SimpleFactory;
+package CreationalPattern.Factory.Solution.SimpleFactory;
+
 /**
  * 💡 Factory class responsible for creating appropriate payment instances.
  * Centralizes creation logic and returns PaymentService interface.

@@ -1,7 +1,9 @@
-// Solution 1 : Separate Builder class and Director
+/**
+ * ✅ Solution 1:
+ * Separate Builder class and Director
+ */
 
-
-package CreationalPattern.Builder.Solution.Solution1;
+package CreationalPattern.Builder.Solution.HouseExample.Solution1;
 
 // ==========================
 // 1. Product Class
