@@ -1,4 +1,4 @@
-package CreationalPattern.Prototype.Problem;
+package CreationalPattern.Prototype.Problem.Game;
 
 public class Enemy {
     private String type;
