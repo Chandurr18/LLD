@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Singleton.Solution;
+package CreationalPattern.Singleton.Solution;
 
 /*
  * Similar to eager initialization but instance is created in static block
@@ -10,16 +10,15 @@ public class DatabaseConnectionStaticBlock {
         System.out.println("Satic Block DB connection established.");
     }
 
-    static{
-        try{
+    static {
+        try {
             instance = new DatabaseConnectionStaticBlock();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Unable to establish Static Block DB connection." + e);
         }
     }
 
-    public static DatabaseConnectionStaticBlock getInstance(){
+    public static DatabaseConnectionStaticBlock getInstance() {
         return instance;
     }
 

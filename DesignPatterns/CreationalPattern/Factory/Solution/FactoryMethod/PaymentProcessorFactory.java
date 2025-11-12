@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.FactoryMethod;
+package CreationalPattern.Factory.Solution.FactoryMethod;
 
 /**
  * 🏗️ Creator (Abstract Factory)

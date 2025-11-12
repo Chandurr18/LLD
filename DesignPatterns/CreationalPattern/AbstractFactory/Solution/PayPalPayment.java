@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.AbstractFactory.Solution;
+package CreationalPattern.AbstractFactory.Solution;
 
 public class PayPalPayment implements PaymentService {
     @Override

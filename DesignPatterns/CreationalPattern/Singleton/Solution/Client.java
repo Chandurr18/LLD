@@ -1,5 +1,4 @@
-package DesignPatterns.CreationalPattern.Singleton.Solution;
-
+package CreationalPattern.Singleton.Solution;
 
 /**
  * Demonstrates various Singleton implementations.
@@ -11,7 +10,7 @@ public class Client {
         var e1 = DatabaseConnectionEager.getInstance();
         var e2 = DatabaseConnectionEager.getInstance();
         System.out.println(e1 == e2);
-        
+
         System.out.println("\nStatic Block:");
         var s1 = DatabaseConnectionStaticBlock.getInstance();
         var s2 = DatabaseConnectionStaticBlock.getInstance();

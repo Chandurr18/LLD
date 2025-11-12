@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.AbstractFactory.Solution;
+package CreationalPattern.AbstractFactory.Solution;
 
 /**
  * ✅ Abstract product: NotificationService

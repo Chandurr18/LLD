@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.AbstractFactory.Solution;
+package CreationalPattern.AbstractFactory.Solution;
 
 /**
  * 🏗️ Abstract Factory
@@ -6,5 +6,6 @@ package DesignPatterns.CreationalPattern.AbstractFactory.Solution;
  */
 public interface PaymentPlatformFactory {
     PaymentService createPaymentService();
+
     NotificationService createNotificationService();
 }

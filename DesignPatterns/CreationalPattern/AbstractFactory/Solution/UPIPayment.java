@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.AbstractFactory.Solution;
+package CreationalPattern.AbstractFactory.Solution;
 
 public class UPIPayment implements PaymentService {
     @Override

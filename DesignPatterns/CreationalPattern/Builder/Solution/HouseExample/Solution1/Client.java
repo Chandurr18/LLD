@@ -1,5 +1,8 @@
-package CreationalPattern.Builder.Solution.Solution1;
+package CreationalPattern.Builder.Solution.HouseExample.Solution1;
 
+/**
+ * Demonstrates use of the Builder pattern Solution-1.
+ */
 public class Client {
     public static void main(String[] args) {
         // Create builder

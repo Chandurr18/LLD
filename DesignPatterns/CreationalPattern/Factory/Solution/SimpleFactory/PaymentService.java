@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Solution.SimpleFactory;
+package CreationalPattern.Factory.Solution.SimpleFactory;
 
 /**
  * ✅ Common abstraction for all payment types.

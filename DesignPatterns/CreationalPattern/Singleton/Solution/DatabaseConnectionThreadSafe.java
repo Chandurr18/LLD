@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Singleton.Solution;
+package CreationalPattern.Singleton.Solution;
 
 /**
  * ❗ Lazy Singleton with thread-safe
@@ -21,7 +21,7 @@ public class DatabaseConnectionThreadSafe {
         }
         return instance;
     }
-    
+
     public void query(String sql) {
         System.out.println("LAZY executing: " + sql);
     }

@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Singleton.Solution;
+package CreationalPattern.Singleton.Solution;
 
 /**
  * ✅ Enum Singleton:
@@ -8,7 +8,7 @@ package DesignPatterns.CreationalPattern.Singleton.Solution;
 public enum DatabaseConnectionEnum {
     INSTANCE;
 
-    DatabaseConnectionEnum(){
+    DatabaseConnectionEnum() {
         System.out.println("Enum DB connection established.");
     }
 

@@ -1,4 +1,4 @@
-package DesignPatterns.CreationalPattern.Factory.Problem;
+package CreationalPattern.Factory.Problem;
 
 /**
  * ❌ Represents a high-level payment service tightly coupled
