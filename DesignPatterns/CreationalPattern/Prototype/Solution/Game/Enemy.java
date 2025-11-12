@@ -1,4 +1,4 @@
-package CreationalPattern.Prototype.Solution;
+package CreationalPattern.Prototype.Solution.Game;
 
 interface EnemyPrototype extends Cloneable{
     EnemyPrototype clone();

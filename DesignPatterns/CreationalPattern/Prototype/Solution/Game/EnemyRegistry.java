@@ -1,4 +1,4 @@
-package CreationalPattern.Prototype.Solution;
+package CreationalPattern.Prototype.Solution.Game;
 
 import java.util.HashMap;
 
