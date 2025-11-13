@@ -1,4 +1,4 @@
-package DesignPatterns.StructuralPattern.Adapter.Solution;
+package StructuralPattern.Adapter.Solution;
 
 /**
  * Demonstrates Adapter Pattern in action.

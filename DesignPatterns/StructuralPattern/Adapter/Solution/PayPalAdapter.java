@@ -1,8 +1,9 @@
-package DesignPatterns.StructuralPattern.Adapter.Solution;
+package StructuralPattern.Adapter.Solution;
 
 /**
  * Object Adapter for PayPalAPI.
- * Implements the application's PaymentGateway (Target) and delegates to PayPalAPI (Adaptee).
+ * Implements the application's PaymentGateway (Target) and delegates to
+ * PayPalAPI (Adaptee).
  */
 public class PayPalAdapter implements PaymentGateway {
 

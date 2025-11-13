@@ -1,4 +1,5 @@
-package DesignPatterns.StructuralPattern.Adapter.Solution;
+package StructuralPattern.Adapter.Solution;
+
 import java.util.Objects;
 
 /**
