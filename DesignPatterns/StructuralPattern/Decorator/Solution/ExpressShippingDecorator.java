@@ -1,4 +1,4 @@
-package DesignPatterns.StructuralPattern.Decorator.Solution;
+package StructuralPattern.Decorator.Solution;
 
 /**
  * Concrete Decorator adding express shipping cost.

@@ -1,9 +1,10 @@
-package DesignPatterns.StructuralPattern.Decorator.Solution;
+package StructuralPattern.Decorator.Solution;
 
 /**
  * Component interface for Orders.
  */
 public interface Order {
     double getCost();
+
     String getDescription();
 }

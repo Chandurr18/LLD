@@ -1,4 +1,4 @@
-package DesignPatterns.StructuralPattern.Decorator.Solution;
+package StructuralPattern.Decorator.Solution;
 
 /**
  * Demonstrates different wrapping orders and resulting costs.
