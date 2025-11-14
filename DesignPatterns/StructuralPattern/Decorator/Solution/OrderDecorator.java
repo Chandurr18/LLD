@@ -1,4 +1,4 @@
-package DesignPatterns.StructuralPattern.Decorator.Solution;
+package StructuralPattern.Decorator.Solution;
 
 /**
  * Abstract Decorator that wraps an Order.

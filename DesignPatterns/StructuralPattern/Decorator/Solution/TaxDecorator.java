@@ -1,4 +1,4 @@
-package DesignPatterns.StructuralPattern.Decorator.Solution;
+package StructuralPattern.Decorator.Solution;
 
 /**
  * Concrete Decorator adding tax percentage (e.g., GST 18%).
