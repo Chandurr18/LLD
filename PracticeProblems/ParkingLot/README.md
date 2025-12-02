@@ -139,17 +139,17 @@ Methods:
 
 ## 6️⃣ Important Flows
 
-### 🚗 **Vehicle Entry**
+### 🚗 **A. Vehicle Entry**
 EntryGate → ParkingLot.generateTicket() → SpotAllocationStrategy.findSpot() → Floor.getFreeSpot() → ParkingSpot.park() → Create Ticke → Add to activeTickets
 
-### 🚙 **Vehicle Exit**
+### 🚙 **B. Vehicle Exit**
 ExitGate → ParkingLot.processExit(ticketId) 
 → Fetch Ticket from activeTickets 
 → FeeCalculation .calculate() 
 → ParkingSpot.removeVehicle() 
 → Remove Ticket  
 
-### 🔁 **Concurrency Flow**
+### 🔁 **C. Concurrency Flow**
 Thread-safe areas:
 - ParkingSpot (synchronized)
 - activeTickets (ConcurrentHashMap)
