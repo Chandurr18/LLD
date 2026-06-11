@@ -1,216 +1,333 @@
-# 🚗 Parking Lot System – Low Level Design (LLD)
+# 🚗 Parking Lot System - Low Level Design (LLD)
 
-## 1️⃣ Clarify Requirements
+## 1️⃣ Overview
 
-### ✔ Functional Requirements
-- 🏢 Manage a **multi-floor parking lot**
-- 🅿️ Each floor has multiple parking spots of types:
-  - 🚗 CAR
-  - 🏍️ BIKE
-  - 🚚 TRUCK
-- 🎯 System must:
-  - 🔍 Assign the **nearest available spot** based on vehicle type
-  - 🎫 Generate ticket on entry
-  - 💰 Calculate fees on exit
-  - ♻️ Release spot after exit
-  - 🚪 Support multiple **entry/exit gates**
-- 🚘 Allowed vehicle types: CAR, BIKE, TRUCK
-- 💵 Fee Strategy: Hourly flat rate (extensible)
+A scalable and extensible Parking Lot Management System built using Object-Oriented Design principles.
 
-### ✔ Non-Functional Requirements
-- 🧵 **Thread-safety** for multiple gates
-- 📦 Extensible for:
-  - New vehicle types
-  - New pricing strategies
-  - New allocation strategies
-- 📈 Scalable across floors
-- 🔐 Fault-tolerant with good error handling
+The system supports:
+
+* 🚘 Vehicle entry and exit
+* 🅿️ Parking spot allocation based on vehicle type
+* 🎫 Ticket generation and management
+* 💰 Parking fee calculation
+* 💳 Payment processing using external providers
+* 🔓 Automatic spot release after vehicle exit
 
 ---
 
-## 2️⃣ Identify Core Entities
-- 🚘 Vehicle  
-- 🅿️ ParkingSpot  
-- 🏢 Floor  
-- 🎫 Ticket  
-- 🏭 ParkingLot (Singleton)  
-- 🚪 EntryGate / ExitGate  
-- 🎯 Spot Allocation Strategy  
-- 💵 Fee Calculation Strategy  
+# 2️⃣ Functional Requirements
+
+### ✔ Supported Operations
+
+* 🏢 Manage multiple floors in a parking lot
+* 🅿️ Add parking spots to floors
+* 🚗 Support multiple vehicle types (CAR, BIKE, TRUCK, EV)
+* 🎯 Assign nearest available parking spot
+* 🎫 Generate a ticket during entry
+* 💵 Calculate parking fees during exit
+* 💳 Process payment through payment adapters
+* ♻️ Release the occupied spot after successful exit
 
 ---
 
-## 3️⃣ Define Relationships
-- 🅿️ ParkingLot → contains → multiple Floors  
-- 🏢 Floor → contains → multiple ParkingSpots  
-- 🚘 Vehicle ↔ ParkingSpot (one assigned spot)  
-- 🎫 Ticket maps:
-  - Vehicle ↔ Spot
-  - Tracks entry time  
-- EntryGate → ParkingLot.generateTicket()  
-- ExitGate → ParkingLot.processExit()  
-- ParkingLot uses:
-  - SpotAllocationStrategy  
-  - FeeCalculator  
+# 3️⃣ Non-Functional Requirements
+
+* 🧵 Thread-safe parking operations
+* 📈 Scalable to multiple floors and thousands of spots
+* 🧩 Easily extensible for:
+
+  * New vehicle types
+  * New spot allocation strategies
+  * New fee calculation algorithms
+  * New payment providers
+* ⚠️ Proper error handling using custom exceptions
 
 ---
 
-## 4️⃣ Design Patterns Used
+# 4️⃣ High Level Architecture
 
-### ✔ Singleton Pattern – ParkingLot
-- Ensures **single instance**
-- Uses **Bill Pugh Singleton** (thread-safe, lazy)
+```
+               🚘 Vehicle
+                     |
+                     v
+              EntryController
+                     |
+                     v
+                SlotService
+                     |
+                     v
+           SpotAllocationStrategy
+                     |
+                     v
+             NearestSpotStrategy
+                     |
+                     v
+                ParkingSpot
+                     |
+                     v
+               TicketService
+                     |
+                     v
+                  Ticket
+```
 
-### ✔ Strategy Pattern
+---
+
+# 5️⃣ Vehicle Exit Flow
+
+```
+              🎫 Ticket ID
+                     |
+                     v
+               ExitController
+                     |
+                     v
+               TicketService
+                     |
+                     v
+               PricingService
+                     |
+                     v
+               FeeCalculator
+                     |
+                     v
+               PaymentService
+                     |
+                     v
+             PaymentServiceAdapter
+                     |
+                     v
+            Release Parking Spot
+```
+
+---
+
+# 6️⃣ Core Components
+
+## 🏢 Controllers
+
+### AdminController
+
+Responsible for parking lot setup:
+
+* Add floors
+* Add parking spots
+* View parking layout
+
+### EntryController
+
+Responsible for vehicle entry:
+
+* Create vehicle object
+* Request slot allocation
+* Generate parking ticket
+
+### ExitController
+
+Responsible for vehicle exit:
+
+* Validate ticket
+* Calculate fee
+* Process payment
+* Release parking spot
+
+---
+
+## ⚙️ Services
+
+### SlotService
+
+* Finds available spots
+* Uses allocation strategy
+* Releases spots after exit
+
+### TicketService
+
+* Generates unique ticket IDs
+* Stores active tickets
+* Retrieves tickets
+
+### PricingService
+
+* Calculates parking charges using fee strategies
+
+### PaymentService
+
+* Delegates payment processing to adapters
+
+---
+
+## 7️⃣ Design Patterns Used
+
+### 🎯 Strategy Pattern
+
+Allows changing algorithms without modifying business logic.
+
 Used for:
-- 🎯 Spot Allocation (Nearest, Cheapest, Priority...)
-- 💵 Fee Calculation (Hourly, Per-minute, Weekend discount...)
 
-✔ Why?  
-- 🔁 Easily switch & extend strategies
+**Spot Allocation**
 
-### ✔ Encapsulation + Cohesion
-- Ticket → handles time  
-- Spot → knows occupancy  
-- Floor → searches spots  
+* SpotAllocationStrategy
+* NearestSpotStrategy
 
----
+**Fee Calculation**
 
-## 5️⃣ Entity Descriptions
-
-### 🚘 Vehicle
-| Field | Description |
-|-------|-------------|
-| licenseNumber | Unique identifier |
-| type | CAR/BIKE/TRUCK |
-
-### 🅿️ ParkingSpot
-| Field | Description |
-|-------|-------------|
-| id | Spot ID |
-| type | Vehicle type allowed |
-| parkedVehicle | Vehicle currently parked |
-
-🔐 **Synchronized Methods**
-- isFree()  
-- park(Vehicle v)  
-- removeVehicle()  
-- Ensures atomic spot assignment.
-
-### 🏢 Floor
-| Field | Description |
-|-------|-------------|
-| id | Floor ID |
-| spots | List of parking spots |
-
-Method:
-- getFreeSpot(VehicleType type) – returns first free matching spot.
-
-### 🎫 Ticket
-| Field | Description |
-|-------|-------------|
-| ticketId | Unique ID |
-| vehicle | Vehicle assigned |
-| spot | ParkingSpot assigned |
-| entryTime | Time stamp |
-
-### 🏭 ParkingLot (Singleton)
-| Field | Description |
-|-------|-------------|
-| floors | All floors |
-| strategy | Spot allocation strategy |
-| feeCalculator | Pricing strategy |
-| activeTickets | ConcurrentMap of tickets |
-| tid | Atomic integer for ticket IDs |
-
-Methods:
-- generateTicket(Vehicle v)
-- processExit(String ticketId)
-- addFloor(Floor f)
-
-### 🚪 EntryGate / ExitGate
-- Simple façade classes calling ParkingLot APIs.
-
-### 🔍 Strategies
-- NearestSpotStrategy : Loops floors → finds first free spot.
-- HourlyFeeCalculator (10 units/hr)
+* FeeCalculator
+* HourlyFeeCalculator
 
 ---
 
-## 6️⃣ Important Flows
+### 🔌 Adapter Pattern
 
-### 🚗 **A. Vehicle Entry**
-EntryGate → ParkingLot.generateTicket() → SpotAllocationStrategy.findSpot() → Floor.getFreeSpot() → ParkingSpot.park() → Create Ticke → Add to activeTickets
+Provides abstraction over third-party payment systems.
 
-### 🚙 **B. Vehicle Exit**
-ExitGate → ParkingLot.processExit(ticketId) 
-→ Fetch Ticket from activeTickets 
-→ FeeCalculation .calculate() 
-→ ParkingSpot.removeVehicle() 
-→ Remove Ticket  
+Implementations:
 
-### 🔁 **C. Concurrency Flow**
-Thread-safe areas:
-- ParkingSpot (synchronized)
-- activeTickets (ConcurrentHashMap)
-- AtomicInteger for ticket IDs
-- synchronized generateTicket() / processExit()
+* RazorPayAdapter
+* StripePayAdapter
 
 ---
 
-## 7️⃣ Concurrency & Thread-Safety
-✔ ParkingSpot 
-- All methods synchronized → ensures no double-parking.
+### 📦 Repository Pattern
 
-✔ ParkingLot 
-- Ticket generation & exit are synchronized.
-- Tickets stored in ConcurrentHashMap, avoids race conditions.
+Separates storage logic from services.
 
-✔ AtomicInteger
-- Guarantees unique ticket IDs even in multi-threaded environments.
+Implementation:
 
-✔ Strategy classes
-- Stateless → thread-safe.
-
-⚠ Floor.spots List
-- Not thread-protected but spot-level locking ensures safety.
----
-
-## 8️⃣ Extensibility & Tradeoffs
-
-### 🧩 Extensibility
-- Add new Spot Allocation Strategies (e.g., random, best fit).  
-- Add new Pricing Straategies - fee calculators (per minute, dynamic surge pricing).  
-- Add new vehicle types (Electric Car, Bus).
-- Add reservations, guidance, mobile app.
-
-### ⚖ Tradeoffs
-
-| Choice | Pros | Cons |
-|--------|------|------|
-| Synchronized ParkingLot | Simple, Safe | High contention |
-| NearestSpotStrategy | Fast, deterministic | Not load-balanced |
-| Bill Pugh Singleton | Very safe | Harder to mock for testing|
-| Spot-level locking | No global lock | Many threads may compete for same spot |
+* TicketRepository using ConcurrentHashMap
 
 ---
 
-## 9️⃣ Edge Cases & Error Handling
-✔ No available spot → throws NoSpotAvailableException  
-✔ Invalid ticket → return -1  
-✔ Vehicle type mismatch → reject parking 
-✔ Zero-time parking → min 1 hour charged  
-✔ Race conditions → prevented with synchronized blocks
+## 8️⃣ Thread Safety & Concurrency
+
+### 🔐 ParkingSpot
+
+Critical methods are synchronized:
+
+* park()
+* removeVehicle()
+* isFree()
+
+Prevents multiple vehicles from occupying the same spot.
 
 ---
 
-## 🔟 Possible Improvements
-- Add logging  
-- Unit tests  
-- Separate DTOs  
-- Add DB layer  
-- Observer pattern for spot updates  
+### 🧵 Ticket Management
+
+TicketRepository uses:
+
+* ConcurrentHashMap
+
+Provides safe access from multiple entry/exit requests.
 
 ---
 
-Happy coding! 🚀
+### 🔢 Unique Ticket Generation
+
+TicketService uses:
+
+* AtomicInteger
+
+Guarantees unique ticket IDs even with concurrent requests.
+
+---
+
+## 9️⃣ Extensibility
+
+### Add new spot allocation strategy
+
+Implement:
+
+```
+SpotAllocationStrategy
+```
+
+Example:
+
+* CheapestSpotStrategy
+* RandomSpotStrategy
+
+### Add new pricing algorithm
+
+Implement:
+
+```
+FeeCalculator
+```
+
+Example:
+
+* WeekendPricingCalculator
+* DynamicPricingCalculator
+
+### Add new payment provider
+
+Implement:
+
+```
+PaymentServiceAdapter
+```
+
+Example:
+
+* PayPalAdapter
+* GooglePayAdapter
+
+---
+
+## 🔟 Project Structure
+
+```
+src
+│
+├── controllers
+├── entities
+├── services
+├── repositories
+├── strategies
+├── adapters
+├── dto
+├── enums
+└── exceptions
+```
+
+---
+
+## 1️⃣1️⃣ Edge Cases Handled
+
+✔ No parking spot available
+→ Throws NoSlotFoundException
+
+✔ Invalid ticket ID
+→ Returns failure response
+
+✔ Multiple vehicles trying to park in the same spot
+→ Prevented using synchronized ParkingSpot methods
+
+✔ Concurrent ticket generation
+→ Handled using AtomicInteger and ConcurrentHashMap
+
+---
+
+## 1️⃣2️⃣ Future Improvements
+
+* 🌐 Expose REST APIs
+* 🗄️ Replace in-memory repository with a database
+* 📱 Mobile application support
+* 🚦 Real-time parking availability display
+* 📊 Analytics and reporting
+* 🧾 Multiple pricing models
+
+---
+
+## 📘 Additional Documentation
+
+For detailed class attributes and methods, refer to:
+
+```
+Entities.md
+```
+
+---
+
+🚀 Happy Coding!
