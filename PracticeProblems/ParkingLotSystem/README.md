@@ -327,7 +327,12 @@ For detailed class attributes and methods, refer to:
 ```
 Entities.md
 ```
+For functional and non-functional requirements:
+
+```text
+Requirements.md
+```
 
 ---
 
-🚀 Happy Coding!
+🚀 **Happy Coding!**
