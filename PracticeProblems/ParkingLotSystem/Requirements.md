@@ -1,36 +1,36 @@
-# Functional requirements
+# Requirements
 
-### Entry Flow:
-- Vehicle arrives at gate
-- Generate Ticket and assign Slot based on Vehicle
-- Mark Slot as occupied
-- Return EntryResult with success/failure status
+## Extensible
 
-### Exit Flow: 
-- User present Ticket at gate
-- Calculate fee based on pricing rules (Flat, Vehicle Based, etc)
-- Process payment through Payment Gateway
-- Release Slot & generate receipt
-- Return ExitResult with success/failure status
+1. What types of vehicles should our system support?
+    - The system should be extensible to support different vehicle types such as bikes, cars, trucks, bus etc.,
 
-### Admin Configuration
-- Add/Edit/Delete Floors & Slots
-- Define Pricing rules based on vehicletype(both flat and hourly rates)
-- Update flat and hourly pricing for vehicle types
-- View current parking status
+2. Can a parking spot accomodate any vehicle?
+    - No, each parking spot supports a specific vehicle type
+
+3. How to calculate the prices for parking?
+    - The system should support multiple pricing strategies like:
+        - Time-based (with peak/non-peak pricing)
+        - Event-based(concerts, weekends, etc.,)
+
+4. Should system support multiple payment methods?
+    - yes, The system must be extensable to accommodate various payment methods
+            such as UPI/ Credit Card, Cash etc,.
 
 
-# Non-Functional Requirements
-- **Scalability:** Must support multiple parking lots and thousands of slots
-- **Consistency:** Strong consistency for slot allocation and release
-- **Availability:** High availability or Entry/Exit even during payment gateway failures
-- **Latency:** Low latency (<500ms) for Ticket generation & exit processing
-- **Extensibility:** Easily add new vehicle types, pricing strategies, or gateways
-- **Security:** Role-based access for admin actions.
+## Dynamic
+1. How many floors and parking spots can the parking lot have?
+    - The system should allow dynamic configuration of floors and slots per floor. Each slot must be mapped to a vehicle type
 
+2. How many gates should our system support?
+    - The system should support multiple gates and exit gates
+    - A ticket should be generated at entry, containing vehicle details, entry timestamp, etc.,
+    - At exit, this ticket will be used to calculate the final cost1. What types of vehicles should our system support?
+    - The system should be extensible to support different vehicle types such as bikes, cars, trucks, bus etc.,
 
-## Edge Cases:
-- Payment Failure during exit - retry and hold slot
-- Ticket Lost - allow admin override
-- Clock skew - system time validation 
-- slot state mismatch - periodic reconcilation
+## Concurrency
+1. Are we building a system for just one physical parking lot or do we want to scale it to multiple lots in future?
+    - Single
+
+2. Do we need to ensure that no two vehivles get the same parking spot?
+    - Yes, The system should use proper locking mechanism or synchronized access to parking slot assignment
