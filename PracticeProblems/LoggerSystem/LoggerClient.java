@@ -3,7 +3,7 @@ import appenders.FileAppender;
 import enums.LogLevel;
 import formatter.PlainTextFormatter;
 
-public class Main {
+public class LoggerClient {
     public static void main(String[] args) {
         Logger logger = Logger.INSTANCE;
 

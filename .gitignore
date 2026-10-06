@@ -1,4 +1,14 @@
 #ignore all java class files
 *.class
+
 *.excalidraw
+
+# IntelliJ IDEA
+.idea/
 *.iml
+
+# IntelliJ build output
+out/
+
+# Maven build output
+target/
