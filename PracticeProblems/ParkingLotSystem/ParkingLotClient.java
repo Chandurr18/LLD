@@ -1,13 +1,15 @@
-import enums.*;
-import factory.*;
+import enums.PaymentMode;
+import enums.PricingStrategyType;
+import enums.VehicleType;
+import factory.PricingStrategyFactory;
+import factory.VehicleFactory;
 import model.*;
-import service.*;
+import service.ParkingLot;
 import utils.DateTimeParser;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
-public class Main {
+public class ParkingLotClient {
     public static void main(String[] args) {
         ParkingLot lot = ParkingLot.INSTANCE;
         EntryGate entryGate = new EntryGate("EG1");
