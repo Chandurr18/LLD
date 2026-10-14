@@ -23,5 +23,9 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
+    <build>
+        <sourceDirectory>
+            ${project.basedir}/PracticeProblems/src/main/java
+        </sourceDirectory>
+    </build>
 </project>
