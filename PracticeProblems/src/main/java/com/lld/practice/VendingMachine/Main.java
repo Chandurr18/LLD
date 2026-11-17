@@ -1,12 +1,13 @@
 package com.lld.practice.VendingMachine;
 
 import com.lld.practice.VendingMachine.enums.Coin;
+import com.lld.practice.VendingMachine.exceptions.ItemNotFoundException;
 import com.lld.practice.VendingMachine.repository.InMemoryInventoryRepository;
 import com.lld.practice.VendingMachine.repository.InventoryRepository;
 import com.lld.practice.VendingMachine.service.InventoryService;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ItemNotFoundException {
         InventoryRepository inventoryRepository = new InMemoryInventoryRepository();
         InventoryService inventoryService = new InventoryService(inventoryRepository);
 
